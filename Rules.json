@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.10.0",
   "rules": [
     {
       "id": "sbxh_webtoon",
@@ -29,8 +29,8 @@
       },
       "viewer": {
         "fetchMethod": "iframe",
-        "imageContainer": "div.vw-imgs, main.vw-main",
-        "imageItem": "img:not(.banner-row img):not(.banner-slot img)",
+        "imageContainer": "div.vw-imgs",
+        "imageItem": "img",
         "lazyAttrOptions": [
           "data-src",
           "data-lazy",
@@ -66,8 +66,8 @@
       },
       "viewer": {
         "fetchMethod": "iframe",
-        "imageContainer": "div.vw-imgs, main.vw-main",
-        "imageItem": "img:not(.banner-row img):not(.banner-slot img)",
+        "imageContainer": "div.vw-imgs",
+        "imageItem": "img",
         "lazyAttrOptions": [
           "data-src",
           "data-lazy",
