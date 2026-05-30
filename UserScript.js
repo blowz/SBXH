@@ -42,22 +42,19 @@
 // ==/UserScript==
 
 (function ultimateBypass() {
-    // 1. 뉴토끼 개발자 도구 차단막(F12 방지)이 실행되기 전에 원천 봉쇄
     Object.defineProperty(window, '__ntkDevtoolsPreflight', { value: 1, writable: false });
     window.DisableDevtool = function() {};
 
-    // 2. 소설 본문 가리기(Shadow DOM) 스텔스 해제
     const originalAttachShadow = Element.prototype.attachShadow;
     const originalToString = Function.prototype.toString;
 
     Element.prototype.attachShadow = function attachShadow(init) {
         if (init && init.mode === 'closed') {
-            init.mode = 'open'; // 본문을 읽을 수 있도록 강제로 엽니다
+            init.mode = 'open';
         }
         return originalAttachShadow.call(this, init);
     };
 
-    // 3. 사이트 보안 스크립트가 해킹을 눈치채지 못하도록 뇌를 속임 (순정 기능인 척 위장)
     Function.prototype.toString = function toString() {
         if (this === Element.prototype.attachShadow) {
             return "function attachShadow() { [native code] }";
